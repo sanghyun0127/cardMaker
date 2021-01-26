@@ -1,6 +1,6 @@
 //firebase SDK
-
 import firebase from "firebase";
+import "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -8,7 +8,7 @@ const firebaseConfig = {
   projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
 };
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+export default firebaseApp;
 //보안상 이유로 따로 env에 보관
 //gitignore에도 설정해주기
