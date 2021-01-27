@@ -1,0 +1,22 @@
+@value mediaQuery from "../../common/size.css";
+
+.maker {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+}
+
+/*
+화면이 줄면 반반이 아래로 되게 해주기
+*/
+@media screen and (max-width: mediaQuery) {
+  .container {
+    flex-direction: column;
+  }
+}

@@ -50,3 +50,10 @@ Ex. /users 와 /users/abc 같은 비슷한 url을 구분할 때는 exact path �
 7-2. authService에서 logout 기능 만들기
 7-3. maker.jsx 에서 logout 구현 : 로그아웃되면 home으로 돌아가기
 => useEffect : user가 없다면 home으로 이동 ( + history)
+7-4. maker에서 Header와 Footer 사이에 div로 컨텐츠 들어갈 부분 만들어주기
+
+### 8. Editor 화면 & Preview 화면
+
+8-1. 각각 만들어서 Maker div 태그 안에 넣어주기
+8-2. css => flex-basis 활용해서 50% 씩 나눠주기
+8-3. maker.css 에서 화면 크기에 따라 절반이 아래로 나눠지게 해주기
