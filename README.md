@@ -18,7 +18,7 @@
    => login.jsx에가서 props에 authService 전달
 4. Login component 안에 Login할 수 있는 함수 생성 = onLogin => authservice.login 실행
 
-## 4. Header, footer, login
+## 4. header, footer, login
 
 1. login에 Logout 구성, img 삽입,
 2. css 작성
@@ -76,3 +76,12 @@
 3. button component 생성
 4. cardEditForm에 Button 추가
 5. imageFileInput component 생성
+
+### 11. AddForm 기능 추가
+
+1. CardEditForm이랑 비슷하므로 component 복사하고 props 지우고, 이름 바꾼 후 value 값을 다 placeholder로 바꿔줌
+2. editor.jsx 에 추가
+3. Input 값들 useRef() 를 이용하여 input 에 ref={...} 으로 넣어주기
+4. onSubmit 으로 클릭하면 add 하게 만들기
+5. addCard 함수 prop으로 받기 : CardAddForm => Editor => Maker
+6. maker.jsx에서 addCard 만들고 state업데이트 : [...cards, card] === [기존것들, 새로운거]

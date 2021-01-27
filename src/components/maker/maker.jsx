@@ -10,34 +10,35 @@ const Maker = ({ authService }) => {
   const [cards, setCards] = useState([
     {
       id: "1",
-      name: "ASH",
+      name: "PSB",
       company: "BONDI",
       theme: "light",
-      title: "Front-end Engineer",
-      email: "ash@bondi.com",
-      message: "I wanna die",
-      fileName: "ash",
+      title: "CEO",
+      email: "psb@bondi.com",
+      message: "아몰랑",
+      fileName: "psb",
       fileURL: null,
     },
     {
       id: "2",
-      name: "PSB",
+      name: "ASH",
       company: "BONDI",
       theme: "dark",
-      title: "CEO",
-      email: "psb@bondi.com",
-      message: "so dabdab",
-      fileName: "psb",
+      title: "Front-End Engineer",
+      email: "ash@bondi.com",
+      message: "조아요~",
+      fileName: "ash",
       fileURL: null,
     },
+
     {
       id: "3",
       name: "JCY",
       company: "BONDI",
       theme: "colorful",
-      title: "Back-end Engineer",
+      title: "Back-End Engineer",
       email: "jcy@bondi.com",
-      message: "ChangGu knows nothing",
+      message: "창구는 아무것도 몰랑!",
       fileName: "jcy",
       fileURL: null,
     },
@@ -45,10 +46,10 @@ const Maker = ({ authService }) => {
       id: "4",
       name: "KHJ",
       company: "BONDI",
-      theme: "light",
+      theme: "colorful2",
       title: "Designer",
       email: "khj@bondi.com",
-      message: "",
+      message: "예헤님 너무 귀여워요♡",
       fileName: "khj",
       fileURL: null,
     },
@@ -69,11 +70,16 @@ const Maker = ({ authService }) => {
     });
   });
 
+  const addCard = (card) => {
+    const update = [...cards, card];
+    setCards(update);
+  };
+
   return (
     <section className={styles.maker}>
       <Header onLogout={onLogout} />
       <div className={styles.container}>
-        <Editor cards={cards} />
+        <Editor cards={cards} addCard={addCard} />
         <Preview cards={cards} />
       </div>
       <Footer />

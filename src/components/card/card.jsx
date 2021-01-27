@@ -40,6 +40,8 @@ function getStyles(theme) {
       return styles.light;
     case "colorful":
       return styles.colorful;
+    case "colorful2":
+      return styles.colorful2;
     default:
       throw new Error(`unknown theme: ${theme}`);
   }
