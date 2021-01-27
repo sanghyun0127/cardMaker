@@ -84,4 +84,19 @@
 3. Input 값들 useRef() 를 이용하여 input 에 ref={...} 으로 넣어주기
 4. onSubmit 으로 클릭하면 add 하게 만들기
 5. addCard 함수 prop으로 받기 : CardAddForm => Editor => Maker
-6. maker.jsx에서 addCard 만들고 state업데이트 : [...cards, card] === [기존것들, 새로운거]
+6. maker.jsx에서 addCard 만들고 setCards로 갱신: [...cards, card] === [기존것들, 새로운거]
+
+### 12. state realtime 업데이트 (state변경, Delete )
+
+1. cardEditForm.jsx 에서 onChange 함수 만들고 각 html 태그마다 onChange 넣어주기
+2. cardEditForm props에 updateCard, deleteCard 추가 => Editor에 prop추가 => Maker에서 함수 만들기
+
+3. 🌟 중요! 🌟
+   새로운 업데이트를 하기 위해서 앞에서부터 for loop , map 로 순차적으로 돌면서 찾는 것은 비효율적
+   => 배열의 크기가 길어지면 매번 다 반복 호출해야 함
+   => useState([...]) 에 있던 배열(=> {...}) 에 각각 '1', '2'로 key를 주고 key:value 형식 (=> {'1':{...}, '2':{...}, } )으로 바꿔 줌
+   => 더 이상 배열이 아니기 때문에 map을 배열로 처리했던 부분 다 바꿔주기 : editor.jsx & preview.jsx
+
+4. updateCard
+5. create이나 update나 logic이 똑같으므로 addCard 를 updateCrad 에 합쳐버리고 createOrUpdateCard 로 이름 변경 & Editor에 들어갈 prop을 addCard 와 updateCard 둘 다 createOrUpdateCard 로 변경
+6. delete 함수 구성하고 cardEditForm 의 onSubmit에서 deleteCard 함수 호출
