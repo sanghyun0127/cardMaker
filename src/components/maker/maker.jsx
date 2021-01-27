@@ -6,7 +6,7 @@ import Header from "../header/header";
 import Preview from "../preview/preview";
 import styles from "./maker.module.css";
 
-const Maker = ({ authService }) => {
+const Maker = ({ authService, FileInput }) => {
   // useState 안의 obj 형식 중요!
   const [cards, setCards] = useState({
     1: {
@@ -98,6 +98,7 @@ const Maker = ({ authService }) => {
       <Header onLogout={onLogout} />
       <div className={styles.container}>
         <Editor
+          FileInput={FileInput}
           cards={cards}
           addCard={createOrUpdateCard}
           updateCard={createOrUpdateCard}

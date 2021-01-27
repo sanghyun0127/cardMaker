@@ -100,3 +100,13 @@
 4. updateCard
 5. create이나 update나 logic이 똑같으므로 addCard 를 updateCrad 에 합쳐버리고 createOrUpdateCard 로 이름 변경 & Editor에 들어갈 prop을 addCard 와 updateCard 둘 다 createOrUpdateCard 로 변경
 6. delete 함수 구성하고 cardEditForm 의 onSubmit에서 deleteCard 함수 호출
+
+### 13. 이미지 업로드
+
+1. 이미지 업로드 하는 기능은 component에 있으면 안된다. => service 폴더에서 class로 생성
+2. imageFileInput.jsx 에서 prop으로 받으면 App에서부터 아래로 내려가므로 너무 많은 props를 내리게 된다 => imageFileInput component를 외부에서 만든 다음에 전달해 나간다.
+3. index.js에서 imageUploader 받아오기
+4. index.js에서 FileInput component 만들기
+5. App에서 FileInput={FileInput} 으로 받고 쭉 내려가면서 props 전달
+6. imageFileInput 에서 버튼 디자인
+7. onFileChange 함수 구성

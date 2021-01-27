@@ -1,9 +1,8 @@
 import React from "react";
 import Button from "../button/button";
-import ImageFileInput from "../imageFileInput/imageFileInput";
 import styles from "./cardEditForm.module.css";
 
-const CardEditForm = ({ card, updateCard, deleteCard }) => {
+const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
   // card에서 정보 받아오기
   const {
     name,
@@ -15,6 +14,14 @@ const CardEditForm = ({ card, updateCard, deleteCard }) => {
     fileName,
     fileURL,
   } = card;
+
+  const onFileChange = (file) => {
+    updateCard({
+      ...card,
+      fileName: file.name,
+      fileURL: file.url,
+    });
+  };
 
   const onChange = (event) => {
     if (event.currentTarget === null) {
@@ -79,7 +86,7 @@ const CardEditForm = ({ card, updateCard, deleteCard }) => {
         onChange={onChange}
       />
       <div className={styles.fileInput}>
-        <ImageFileInput />
+        <FileInput name={fileName} onFileChange={onFileChange} />
       </div>
       <Button name="Delete" onClick={onSubmit} />
     </form>
