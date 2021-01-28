@@ -26,7 +26,7 @@ const Maker = ({ authService, FileInput, cardRepository }) => {
       setCards(cards);
     });
     return () => stopSync();
-  }, [userId]);
+  }, [userId, cardRepository]);
 
   //로그인 useEffect
   useEffect(() => {
@@ -38,7 +38,7 @@ const Maker = ({ authService, FileInput, cardRepository }) => {
         history.push("/");
       }
     });
-  });
+  }, [userId, authService, history]);
 
   // 중요! => 이전 것들을 전부다 받아오지 말고 해당하는 것만 받아서 새로운 걸로 return
   // create이나 update나 logic이 똑같으므로 위에 있는 addCard 를 여기에 합쳐버리기

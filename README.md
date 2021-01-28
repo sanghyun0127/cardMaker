@@ -126,3 +126,4 @@
 3. Maker에서 CardRepository를 props로 받아서 사용, index.js까지 올리기
 4. Maker의 createOrUpdate, deleteCard 에 cardRepository 적용
 5. calss에 실시간 sycn 추가 -> Maker 에서 사용
+6. firebase 전체 import 하지말고 필요한 것만 import, export

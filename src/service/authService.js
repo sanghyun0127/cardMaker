@@ -1,21 +1,35 @@
 // firebase 로그인 구현
-import firebase from "firebase";
-import firebaseApp from "./firebaseSetting";
+import {
+  firebaseAuth,
+  googleProvider,
+  githubProvider,
+} from "./firebaseSetting";
 
 class AuthService {
+  getProvider(providerName) {
+    switch (providerName) {
+      case "Google":
+        return googleProvider;
+      case "Github":
+        return githubProvider;
+      default:
+        throw new Error(`not supported provider: ${providerName}`);
+    }
+  }
+
   login(providerName) {
-    const authProvider = new firebase.auth[`${providerName}AuthProvider`]();
-    return firebaseApp.auth().signInWithPopup(authProvider); //initialized firebase = firebaseApp 사용
+    const authProvider = this.getProvider(providerName);
+    return firebaseAuth.signInWithPopup(authProvider); //initialized firebase = firebaseApp 사용
   }
 
   //logout
   logout() {
-    firebase.auth().signOut();
+    firebaseAuth.signOut();
   }
 
   // 사용자가 바뀔 때마다 사용자 정보를 전달
   onAuthChange(onUserChanged) {
-    firebase.auth().onAuthStateChanged((user) => {
+    firebaseAuth.onAuthStateChanged((user) => {
       onUserChanged(user);
     });
   }

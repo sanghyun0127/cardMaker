@@ -1,10 +1,10 @@
-import firebaseApp from "./firebaseSetting";
+import { firebaseDatabase } from "./firebaseSetting";
 
 class CardRepository {
   // 모두 maker에서 사용
   //실시간 sync
   syncCards(userId, onUpdate) {
-    const ref = firebaseApp.database().ref(`${userId}/cards`);
+    const ref = firebaseDatabase.ref(`${userId}/cards`);
     // 'value' === 값이 변경될 때마다
     ref.on("value", (snapshot) => {
       const value = snapshot.val();
@@ -17,13 +17,13 @@ class CardRepository {
   saveCard(userId, card) {
     //firebase Docs Read and Write Data참고
     //userId 안에 cards 안에 card.id 안에 card를 저장
-    firebaseApp.database().ref(`${userId}/cards/${card.id}`).set(card);
+    firebaseDatabase.ref(`${userId}/cards/${card.id}`).set(card);
   }
 
   removeCard(userId, card) {
     //firebase Docs Read and Write Data참고
     //userId 안에 cards 안에 card.id 안에 card를 저장
-    firebaseApp.database().ref(`${userId}/cards/${card.id}`).remove();
+    firebaseDatabase.ref(`${userId}/cards/${card.id}`).remove();
   }
 }
 export default CardRepository;
