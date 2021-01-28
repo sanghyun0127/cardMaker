@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import ReactDOM from "react-dom";
 import "./index.module.css";
 import App from "./App";
@@ -16,9 +16,9 @@ props 들이 맨 아래까지 내려가므로 여기서 한 번에 고쳐서 넣
 다른 곳에서 컴포넌트를 고치지 않고 여기서 받아서 해결할 수 있으므로 효율적
  */
 const imageUploader = new ImageUploader();
-const FileInput = (props) => (
+const FileInput = memo((props) => (
   <ImageFileInput {...props} imageUploader={imageUploader} />
-);
+));
 
 ReactDOM.render(
   <React.StrictMode>

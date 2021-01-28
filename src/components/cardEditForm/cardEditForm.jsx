@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 import Button from "../button/button";
 import styles from "./cardEditForm.module.css";
 
-const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
+const CardEditForm = memo(({ FileInput, card, updateCard, deleteCard }) => {
   // card에서 정보 받아오기
   const { name, company, title, email, message, theme, fileName } = card;
 
@@ -82,6 +82,6 @@ const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
       <Button name="Delete" onClick={onSubmit} />
     </form>
   );
-};
+});
 
 export default CardEditForm;
