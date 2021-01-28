@@ -12,19 +12,17 @@ const CardAddForm = ({ FileInput, onAdd }) => {
   const emailRef = useRef();
   const messageRef = useRef();
 
-  const [file, setFile] = useState({
-    fileName: null,
-    fileURL: null,
-  });
+  //add는 add 버튼을 눌러야 업데이트 된거니까 그 전까지는 state로 가지고 있기
+  const [file, setFile] = useState({ fileName: null, fileURL: null });
 
   const onFileChange = (file) => {
+    console.log(file);
     setFile({
       fileName: file.name,
       fileURL: file.url,
     });
   };
 
-  // click하면 add하게 만들기
   const onSubmit = (event) => {
     event.preventDefault();
     const card = {
@@ -38,12 +36,10 @@ const CardAddForm = ({ FileInput, onAdd }) => {
       fileName: file.fileName || "",
       fileURL: file.fileURL || "",
     };
+
     //add form 초기화
     formRef.current.reset();
-    setFile({
-      fileName: file.name,
-      fileURL: file.url,
-    });
+    setFile({ fileName: null, fileURL: null });
     onAdd(card);
   };
 
@@ -72,7 +68,6 @@ const CardAddForm = ({ FileInput, onAdd }) => {
         <option placeholder="light">light</option>
         <option placeholder="dark">dark</option>
         <option placeholder="colorful">colorful</option>
-        <option placeholder="colorful2">colorful2</option>
       </select>
       <input
         ref={titleRef}
@@ -86,7 +81,7 @@ const CardAddForm = ({ FileInput, onAdd }) => {
         className={styles.input}
         type="text"
         name="email"
-        placeholder="E-mail"
+        placeholder="Email"
       />
       <textarea
         ref={messageRef}

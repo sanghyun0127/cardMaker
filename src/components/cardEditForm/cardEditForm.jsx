@@ -4,16 +4,7 @@ import styles from "./cardEditForm.module.css";
 
 const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
   // card에서 정보 받아오기
-  const {
-    name,
-    company,
-    title,
-    email,
-    message,
-    theme,
-    fileName,
-    fileURL,
-  } = card;
+  const { name, company, title, email, message, theme, fileName } = card;
 
   const onFileChange = (file) => {
     updateCard({

@@ -104,9 +104,16 @@
 ### 13. 이미지 업로드
 
 1. 이미지 업로드 하는 기능은 component에 있으면 안된다. => service 폴더에서 class로 생성
-2. imageFileInput.jsx 에서 prop으로 받으면 App에서부터 아래로 내려가므로 너무 많은 props를 내리게 된다 => imageFileInput component를 외부에서 만든 다음에 전달해 나간다.
+2. imageFileInput.jsx 에서 prop으로 받으면 App에서부터 아래로 내려가므로 너무 많은 props를 내리게 된다 => imageFileInput component를 외부에서 만든 다음에 전달해 나간다. {...props}는 확장성을 위해 받아준다.
 3. index.js에서 imageUploader 받아오기
 4. index.js에서 FileInput component 만들기
-5. App에서 FileInput={FileInput} 으로 받고 쭉 내려가면서 props 전달
+5. App에서 FileInput={FileInput} 으로 받고 쭉 내려가면서 props 전달 (index -> App -> Maker -> Editor -> editForm & addForm)
 6. imageFileInput 에서 버튼 디자인
-7. onFileChange 함수 구성
+7. onChange 함수 구성 <= prop으로 넘어온 onFileChange 받기
+8. editForm에 onFileChange 올려주고 함수 만들기
+9. addForm에서는 add 버튼을 눌러야 업데이트 되니까 그 전까지는 state로 유지해주기
+10. addForm에 onFileChange 올려주고 함수 만들기
+11. editForm과 addForm의 FileInput에서 name 받기
+12. add 누르면 초기화 구성
+13. imageFileInput에 loading으로 state 구성 & css에서 로딩 스피너 만들기
+14. button className 수정해서 버튼 업로드가 되면 핑크색, 업로드가 안되면 회색으로 만들기
