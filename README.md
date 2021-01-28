@@ -117,3 +117,12 @@
 12. add 누르면 초기화 구성
 13. imageFileInput에 loading으로 state 구성 & css에서 로딩 스피너 만들기
 14. button className 수정해서 버튼 업로드가 되면 핑크색, 업로드가 안되면 회색으로 만들기
+15. editor랑 preview에 overflow-y: 'auto' 줘서 스크롤되게 만들기
+
+### 14. firebase 연동
+
+1. service에서 cardRepositoy class 생성
+2. 사용자 id 별로 DB를 구성할 것이기 때문에 maker에 userId를 state로 줘서 관리
+3. Maker에서 CardRepository를 props로 받아서 사용, index.js까지 올리기
+4. Maker의 createOrUpdate, deleteCard 에 cardRepository 적용
+5. calss에 실시간 sycn 추가 -> Maker 에서 사용

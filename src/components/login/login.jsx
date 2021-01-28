@@ -12,11 +12,13 @@ const Login = ({ authService }) => {
       state: { id: userId },
     });
   };
+
   const onLogin = (event) => {
-    const providerName = event.currentTarget.textContent;
     authService //
-      .login(providerName)
-      .then((data) => goToMaker(data.user.uid)); //버튼 안에 있는 text를 providerName으로 할 것
+      .login(event.currentTarget.textContent)
+      .then((data) => {
+        goToMaker(data.user.uid);
+      });
   };
 
   useEffect(() => {

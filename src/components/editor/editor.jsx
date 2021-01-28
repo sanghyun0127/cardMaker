@@ -16,14 +16,6 @@ const Editor = ({ FileInput, cards, addCard, updateCard, deleteCard }) => (
         deleteCard={deleteCard}
       />
     ))}
-    {/* {cards.map((card) => (
-      <CardEditForm
-        key={card.id}
-        card={card}
-        updateCard={updateCard}
-        deleteCard={deleteCard}
-      />
-    ))} */}
     <CardAddForm FileInput={FileInput} onAdd={addCard} />
   </section>
 );

@@ -5,16 +5,7 @@ const DEFAULT_IMAGE = "/images/default_logo.png";
 
 const Card = ({ card }) => {
   // card에서 정보 받아오기
-  const {
-    name,
-    company,
-    title,
-    email,
-    message,
-    theme,
-    fileName,
-    fileURL,
-  } = card;
+  const { name, company, title, email, message, theme, fileURL } = card;
   // img가 따로 없다면 default 이미지 사용
   const url = fileURL || DEFAULT_IMAGE;
 
